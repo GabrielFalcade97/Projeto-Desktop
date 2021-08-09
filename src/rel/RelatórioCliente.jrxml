@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatórioCliente" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2517eb65-0649-4fa8-810f-5eaa431f278d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[Y2xpZW50ZSBBUyAsMjQ3LDE0LDJmYTllMDAwLTg0MzUtNDJlOC1hZDRiLTFiYmFhOGRlYjIxYTth
+Z2VuZGEgQVMgLDUyLDE5LDZlZmVkMWVkLTZkNWMtNDMxNi1iNGYxLWE0MmIyMDUxZjgzZjs=]]>
+	</property>
+	<queryString>
+		<![CDATA[SELECT cliente.cli_nome,
+	agenda.agenda_motivo
+FROM agenda
+	INNER JOIN cliente ON 
+	 agenda.agenda_codcli = cliente.cli_codigo]]>
+	</queryString>
+	<field name="cli_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cli_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+		<fieldDescription><![CDATA[nomeCli]]></fieldDescription>
+	</field>
+	<field name="agenda_motivo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="agenda_motivo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="agenda"/>
+		<fieldDescription><![CDATA[observa]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement x="161" y="35" width="232" height="30" uuid="21185f7c-56df-4576-9839-c0e63794569d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Relatório de Tatuagem Executada]]></text>
+			</staticText>
+			<image>
+				<reportElement x="80" y="15" width="50" height="50" uuid="761792fe-e60f-4c0a-aac6-77cc564294c4"/>
+				<imageExpression><![CDATA["/imagens/tattoIcon.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="90" width="560" height="1" uuid="ed83e33a-458e-46ea-9e45-613aa2cb1b82"/>
+			</line>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="450" y="40" width="100" height="30" uuid="3a102f11-c7af-4c60-be25-9fbca2e5223d"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="240" y="0" width="100" height="30" uuid="aff41c89-9f8a-4843-a673-cd789f2d6137">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="233d9585-cb50-4c34-978f-f962ac4fec20"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cli_nome}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-3" y="33" width="560" height="1" uuid="6a97586d-4f7b-4304-89e5-fff74ebf826c"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="180" height="30" uuid="60cd13e3-b486-489b-931b-48b3efd31403"/>
+				<text><![CDATA[Trabalho(s) realizado(s)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-15" y="40" width="560" height="1" uuid="ecc25112-7b2a-49cc-87ec-9baf7e43bac3"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="100" height="30" uuid="074fe239-8378-4ac4-b98f-8666c19f3a37">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7692e350-438a-43a7-8839-b480e8f8dd62"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{agenda_motivo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="15" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="10" splitType="Stretch"/>
+	</summary>
+</jasperReport>
